@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap');
+@import "tailwindcss";
+
+/* ─── Design tokens (Tailwind v4 — defined here, not in a config file) ─── */
+@theme {
+  /* Colors */
+  --color-bg:          #0f1117;
+  --color-surface:     #161b27;
+  --color-border:      #222736;
+  --color-border-soft: #1c2133;
+
+  --color-text:        #f1f5f9;
+  --color-muted:       #64748b;
+  --color-subtle:      #334155;
+
+  --color-accent:      #6366f1;
+  --color-accent-dim:  #4f46e5;
+
+  /* Fonts */
+  --font-sans:    "Inter",  sans-serif;
+  --font-display: "Sora",   sans-serif;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius:    10px;
+  --radius-lg: 14px;
+
+  /* Animations */
+  --animate-fade-up:   fade-up 0.5s ease both;
+  --animate-fade-up-2: fade-up 0.5s 0.1s ease both;
+  --animate-fade-up-3: fade-up 0.5s 0.2s ease both;
+  --animate-fade-up-4: fade-up 0.5s 0.3s ease both;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+}
+
+/* ─── Base ─── */
+*, *::before, *::after { box-sizing: border-box; }
+html  { scroll-behavior: smooth; }
+body  {
+  background-color: var(--color-bg);
+  color:            var(--color-text);
+  font-family:      var(--font-sans);
+  overflow-x:       hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+
+/* ─── Gradient text (only thing Tailwind can't express) ─── */
+.gradient-text {
+  background: linear-gradient(135deg, #f1f5f9 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
